@@ -11,9 +11,9 @@ class TodosController < ApplicationController
 		@todo = Todo.new(todo_params)
 		
 		if @todo.save
-			redirect_to root_path
+			redirect_to todos_path
 		else
-			redirect_to root_path, error: "could not save todo"
+			redirect_to todos_path, error: "could not save todo"
 		end
 	end
 
