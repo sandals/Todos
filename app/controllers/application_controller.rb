@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
 	end
 
 	def signed_in?
-		session[:current_email].present?
+		current_user.present?
+	end
+
+	def sign_in user
+		session[:current_email] = user
 	end
 
 	def current_user
