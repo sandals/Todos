@@ -2,7 +2,7 @@ class TodosController < ApplicationController
 	before_filter :authenticate
 
 	def index
-		@todos = Todo.where(email: current_user)
+		@todos = current_user.todos
 	end
 
 	def new
@@ -10,7 +10,7 @@ class TodosController < ApplicationController
 	end
 
 	def create
-		@todo = Todo.new(todo_params)
+		@todo = current_user.todos.new(todo_params)
 		
 		if @todo.save
 			redirect_to todos_path
@@ -22,6 +22,6 @@ class TodosController < ApplicationController
 	private
 
 	def todo_params
-		params.require(:todo).permit(:title).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user).merge(email: current_user)
+		params.require(:todo).permit(:title)
 	end
 end
